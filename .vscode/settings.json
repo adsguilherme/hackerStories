@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "/home/gscode/gscode/sql/oreilly_getting_started_with_sql/rexon_metals.db",
+            "name": "rexon"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
