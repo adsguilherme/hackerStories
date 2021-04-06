@@ -219,7 +219,7 @@ describe('Hacker Stories', () => {
     })
   })
 
-  context.only('Search', () => {
+  context('Search', () => {
     beforeEach(() => {
       cy.intercept(
         'GET',
@@ -344,4 +344,21 @@ context('Errors', () => {
     cy.get('p:contains(Something went wrong ...)')
       .should('be.visible')
   })
+})
+
+it('shows a "Loading ..." state before showing the results', () => {
+  cy.intercept(
+    'GET',
+    '**/search**',
+    {
+      delay: 1000,
+      fixture: 'stories'
+    }
+  ).as('getDelayStories')
+  cy.visit('/')
+
+  cy.assertLoadingIsShownAndHidden()
+  cy.wait('@getDelayStories')
+
+  cy.get('.item').should('have.length', 2)
 })
