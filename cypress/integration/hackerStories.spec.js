@@ -100,7 +100,7 @@ describe('Hacker Stories', () => {
         it('shows the right data for all rendered stories', () => {
           cy.get('.item')
             .first()
-            .should('contain', stories.hits[0].title) // HACK: Esse 'stories' foi criada uma const, e assim podemos capturar as propriedadades.
+            .should('contain', stories.hits[0].title) // HACK: Esse 'stories' foi criada uma const, e assim podemos capturar as propriedades.
             .and('contain', stories.hits[0].num_comments)
             .and('contain', stories.hits[0].points)
           cy.get(`.item a:contains(${stories.hits[0].title})`) // HACK: Validando a existência de um link
